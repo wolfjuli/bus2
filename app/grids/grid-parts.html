@@ -1,0 +1,26 @@
+
+<div class="parts-grid">
+    <h3>Parts <small>{{(filter.$) ? "Filtered by '" + filter.$ + "'" : '' }}</small></h3>
+    <table class="table" >
+
+        <tr ng-repeat="part in parts | filter : filter track by part.id" id="parts-{{part.id}}">
+            <td>{{part.name}}</td>
+            <td>{{part.amount}}</td>
+            <td>{{places[part.place].name}}</td>
+            <td>{{part.integrity}}</td>
+            <td>{{(part.description != null ? part.description : "")}}</td>
+            <td width="4em">
+                <a href="{{'#edit=' + part.id }}" class="btn btn-primary">
+                    <span class="glyphicons glyphicons-edit"></span>
+                </a>
+            </td>
+            <td>
+                <a href="{{'delete=' + part.id}}" class="btn btn-danger">
+                    <span class="glyphicons glyphicons-remove"></span>
+                </a>
+            </td>
+        </tr>
+
+    </table>
+
+</div>
